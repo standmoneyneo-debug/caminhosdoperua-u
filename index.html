@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#2b2b2b" />
+  <title>Caminhos do Peruaçu • Guia turístico no Parque Nacional Cavernas do Peruaçu</title>
+  <meta name="description" content="Ecoturismo e turismo de experiências no Parque Nacional Cavernas do Peruaçu (MG). Roteiros com arte rupestre e cavernas como Gruta do Janelão, Lapa do Boquete, Lapa Bonita e Arco do André. Agendamento e guia credenciado." />
+  <meta name="robots" content="index,follow" />
+  <link rel="icon" href="assets/img/logo.png" />
+  <meta property="og:title" content="Caminhos do Peruaçu" />
+  <meta property="og:description" content="Guia turístico credenciado no Parque Nacional Cavernas do Peruaçu. Trilhas, cavernas e arte rupestre. Agende pelo WhatsApp." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://caminhosdoperuacu.com.br/assets/img/peruacu-6.jpg" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:url" content="https://caminhosdoperuacu.com.br/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preload" as="image" href="assets/img/peruacu-6.jpg" imagesrcset="assets/img/peruacu-6.jpg 1x" />
+  <style>
+    :root{
+      --bg:#0e0f10;
+      --surface:#15181b;
+      --surface2:#1b2025;
+      --text:#f4f1ea;
+      --muted:#c9c3b6;
+      --brand:#d39a3b; /* ocre */
+      --brand2:#9c3a2d; /* vermelho-terra */
+      --ok:#1dd1a1;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(211,154,59,.18), transparent 60%),
+        radial-gradient(900px 550px at 100% 0%, rgba(156,58,45,.14), transparent 55%),
+        radial-gradient(900px 600px at 0% 100%, rgba(211,154,59,.08), transparent 60%),
+        var(--bg);
+      line-height:1.45;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .pill{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid rgba(255,255,255,.10); border-radius:999px; background:rgba(255,255,255,.04)}
+    .dot{width:8px; height:8px; border-radius:50%; background:var(--ok); box-shadow:0 0 0 6px rgba(29,209,161,.14)}
+
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px); background:rgba(14,15,16,.68); border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:16px}
+    .brand{display:flex; align-items:center; gap:12px; min-width:200px}
+    .brand img{width:42px; height:42px; border-radius:12px; background:#fff}
+    .brand b{display:block; letter-spacing:.2px}
+    .brand span{display:block; color:var(--muted); font-size:12.5px; margin-top:1px}
+
+    .menu{display:flex; gap:18px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
+    .menu a{color:var(--muted); font-weight:600; font-size:14px; padding:10px 10px; border-radius:12px}
+    .menu a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:14px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06); color:var(--text); font-weight:800; letter-spacing:.2px; cursor:pointer}
+    .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.09)}
+    .btn:active{transform: translateY(0)}
+    .btn.primary{background:linear-gradient(135deg, rgba(211,154,59,.95), rgba(156,58,45,.9)); border:none; box-shadow:0 16px 40px rgba(156,58,45,.18)}
+    .btn.primary:hover{filter:saturate(1.1)}
+    .btn.small{padding:10px 12px; border-radius:12px; font-weight:800; font-size:14px}
+    .btn.whats{background:#1f2c24; border:1px solid rgba(29,209,161,.25)}
+    .btn.whats:hover{background:#223228}
+
+    .hero{padding:42px 0 22px}
+    .heroGrid{display:grid; grid-template-columns: 1.05fr .95fr; gap:26px; align-items:center}
+    .hTitle{font-size: clamp(34px, 4.2vw, 52px); line-height:1.05; margin:16px 0 12px}
+    .hTitle em{font-style:normal; color:var(--brand)}
+    .lead{color:var(--muted); font-size:18px; max-width:58ch; margin:0 0 18px}
+    .ctaRow{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .fine{color:rgba(255,255,255,.72); font-size:13px; margin-top:10px}
+    .card{border-radius:var(--radius); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.10); box-shadow: var(--shadow)}
+
+    .heroMedia{position:relative; overflow:hidden}
+    .heroMedia img{width:100%; height:100%; display:block; object-fit:cover; aspect-ratio: 4 / 5; filter: contrast(1.05) saturate(1.08)}
+    .heroBadge{position:absolute; left:16px; bottom:16px; right:16px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    .mini{padding:10px 12px; border-radius:14px; background:rgba(14,15,16,.62); border:1px solid rgba(255,255,255,.14); backdrop-filter: blur(10px)}
+    .mini b{display:block; font-size:13px}
+    .mini span{display:block; font-size:12px; color:rgba(255,255,255,.74)}
+
+    .section{padding:34px 0}
+    .section h2{font-size: clamp(22px, 2.4vw, 30px); margin:0 0 12px}
+    .section p{color:var(--muted); margin:0}
+    .grid3{display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-top:18px}
+    .grid2{display:grid; grid-template-columns: repeat(2,1fr); gap:18px; margin-top:18px}
+
+    .feature{padding:18px; border-radius:18px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.10)}
+    .feature h3{margin:0 0 8px; font-size:16px}
+    .feature p{margin:0; color:rgba(255,255,255,.74); font-size:14px}
+    .kpi{display:flex; gap:12px; align-items:flex-start}
+    .icon{width:38px; height:38px; border-radius:14px; display:grid; place-items:center;
+      background:linear-gradient(135deg, rgba(211,154,59,.24), rgba(156,58,45,.18));
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .icon svg{width:20px; height:20px; opacity:.95}
+
+    .tourCard{padding:18px; display:grid; grid-template-columns: 1.2fr .8fr; gap:14px; align-items:center}
+    .tourCard h3{margin:0 0 8px}
+    .tourCard ul{margin:10px 0 0; padding-left:18px; color:rgba(255,255,255,.78); font-size:14px}
+    .tagRow{display:flex; gap:8px; flex-wrap:wrap}
+    .tag{font-size:12px; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10); color:rgba(255,255,255,.78)}
+
+    .gallery{display:grid; grid-template-columns: repeat(12,1fr); gap:10px; margin-top:18px}
+    .gItem{border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.10); background:#0b0c0d}
+    .gItem img{width:100%; height:100%; display:block; object-fit:cover}
+    .g1{grid-column: span 7; aspect-ratio: 16/9}
+    .g2{grid-column: span 5; aspect-ratio: 16/9}
+    .g3{grid-column: span 4; aspect-ratio: 4/5}
+    .g4{grid-column: span 4; aspect-ratio: 4/5}
+    .g5{grid-column: span 4; aspect-ratio: 4/5}
+    .g6{grid-column: span 12; aspect-ratio: 21/9}
+
+    .faq details{border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); border-radius:18px; padding:14px 16px}
+    .faq summary{cursor:pointer; font-weight:800}
+    .faq p{margin:10px 0 0; color:rgba(255,255,255,.76); font-size:14px}
+
+    .contactGrid{display:grid; grid-template-columns: 1fr 1fr; gap:18px; align-items:start}
+    .contactBox{padding:18px}
+    .list{margin:10px 0 0; padding:0; list-style:none; display:grid; gap:10px}
+    .list li{display:flex; gap:10px; align-items:flex-start; color:rgba(255,255,255,.8)}
+    .list small{color:rgba(255,255,255,.68)}
+    .form{display:grid; gap:10px; margin-top:10px}
+    label{font-size:13px; color:rgba(255,255,255,.75)}
+    input, textarea, select {
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(10,12,13,.55);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:110px; resize:vertical}
+    input:focus, textarea:focus, select:focus{border-color:rgba(211,154,59,.55); box-shadow: 0 0 0 4px rgba(211,154,59,.14)}
+
+    footer{padding:28px 0 34px; border-top:1px solid rgba(255,255,255,.08); color:rgba(255,255,255,.70)}
+    .foot{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
+    .muted{color:rgba(255,255,255,.70)}
+
+    .floatWA{position:fixed; right:16px; bottom:16px; z-index:80}
+    .floatWA a{display:inline-flex; align-items:center; gap:10px; padding:12px 14px; border-radius:999px; background:#1f2c24; border:1px solid rgba(29,209,161,.25); box-shadow:0 16px 50px rgba(0,0,0,.45)}
+    .floatWA span{font-weight:900}
+    .floatWA svg{width:18px; height:18px}
+
+    @media (max-width: 920px){
+      .heroGrid{grid-template-columns: 1fr;}
+      .heroMedia img{aspect-ratio: 16/10}
+      .grid3{grid-template-columns: 1fr;}
+      .grid2{grid-template-columns: 1fr;}
+      .tourCard{grid-template-columns:1fr;}
+      .contactGrid{grid-template-columns:1fr;}
+      .menu{display:none}
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container">
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="brand" href="#top">
+        <img src="assets/img/logo.png" alt="Logo Caminhos do Peruaçu" width="42" height="42" loading="eager" />
+        <div>
+          <b>Caminhos do Peruaçu</b>
+          <span>Guia turístico • Ecoturismo • MG</span>
+        </div>
+      </a>
+
+      <div class="menu" role="navigation" aria-label="Seções do site">
+        <a href="#roteiros">Roteiros</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#faq">Dúvidas</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+      <a class="btn primary small" href="https://wa.me/5538991307687?text=Olá!%20Gostaria%20de%20agendar%20um%20roteiro%20no%20Parque%20Nacional%20Cavernas%20do%20Peruaçu.%20Pode%20me%20passar%20opções%20de%20datas%20e%20valores?" target="_blank" rel="noopener">Agendar no WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container">
+      <div class="heroGrid">
+        <div>
+          <span class="pill"><span class="dot"></span> Condutor credenciado • Parque Nacional Cavernas do Peruaçu</span>
+          <h1 class="hTitle">Viva o <em>Peruaçu</em> com segurança, história e natureza.</h1>
+          <p class="lead">
+            Roteiros guiados por cavernas, trilhas e galerias impressionantes de <b>arte rupestre</b>.
+            Ideal para planejar <b>2 a 4 dias</b> de viagem — com agendamento prévio.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="https://wa.me/5538991307687?text=Olá!%20Gostaria%20de%20agendar%20um%20roteiro%20no%20Parque%20Nacional%20Cavernas%20do%20Peruaçu.%20Pode%20me%20passar%20opções%20de%20datas%20e%20valores?" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">Agendar agora</a>
+            <a class="btn whats" href="tel:+5538991307687" aria-label="Ligar para (38) 99130‑7687">Ligar: (38) 99130‑7687</a>
+            <a class="btn" href="https://www.instagram.com/caminhosdoperuacu/" target="_blank" rel="noopener" aria-label="Abrir Instagram">Instagram</a>
+          </div>
+          <div class="fine">📍 Base: Itacarambi • MG • Norte de Minas — atendimento para visitantes do parque e região.</div>
+
+          <div class="section" style="padding:18px 0 0">
+            <div class="grid3">
+              <div class="feature">
+                <div class="kpi">
+                  <div class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="2"/><path d="M12 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="2"/></svg>
+                  </div>
+                  <div>
+                    <h3>Roteiros clássicos</h3>
+                    <p>Gruta do Janelão, Lapa do Boquete, Lapa Bonita e Arco do André.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="feature">
+                <div class="kpi">
+                  <div class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M4 20h16" stroke="currentColor" stroke-width="2"/><path d="M6 20V9l6-5 6 5v11" stroke="currentColor" stroke-width="2"/><path d="M10 20v-6h4v6" stroke="currentColor" stroke-width="2"/></svg>
+                  </div>
+                  <div>
+                    <h3>Turismo de experiências</h3>
+                    <p>Histórias locais, geologia, cultura e vivência real no cânion.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="feature">
+                <div class="kpi">
+                  <div class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" stroke="currentColor" stroke-width="2"/></svg>
+                  </div>
+                  <div>
+                    <h3>Visita segura</h3>
+                    <p>Planejamento, orientação e boas práticas para trilha e caverna.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="card heroMedia" aria-label="Foto do Peruaçu">
+          <img src="assets/img/peruacu-6.jpg" alt="Paisagem do Parque Nacional Cavernas do Peruaçu" width="900" height="1125" loading="eager" />
+          <div class="heroBadge">
+            <div class="mini">
+              <b>Visitação</b>
+              <span>Gratuita • com guia credenciado</span>
+            </div>
+            <div class="mini">
+              <b>Agendamento</b>
+              <span>Prévio • planeje 2–4 dias</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="roteiros" class="section">
+    <div class="container">
+      <h2>Roteiros em destaque</h2>
+      <p>Você escolhe o ritmo — eu ajudo a montar o roteiro ideal (meio dia, 1 dia ou expedição de 2 a 4 dias).</p>
+
+      <div class="grid2">
+        <article class="card tourCard">
+          <div>
+            <h3>Clássico do Peruaçu (1–2 dias)</h3>
+            <div class="tagRow">
+              <span class="tag">Arte rupestre</span>
+              <span class="tag">Cavernas</span>
+              <span class="tag">Fotografia</span>
+            </div>
+            <ul>
+              <li>Galerias de pinturas rupestres e paredões</li>
+              <li>Grandes salões e formações geológicas</li>
+              <li>Paradas para explicações e fotos</li>
+            </ul>
+          </div>
+          <div class="feature">
+            <h3 style="margin:0 0 8px">Inclui</h3>
+            <p style="margin:0">Orientação completa, ritmo adequado ao grupo e dicas do que levar.</p>
+            <div style="margin-top:12px">
+              <a class="btn primary small" href="https://wa.me/5538991307687?text=Olá!%20Gostaria%20de%20agendar%20um%20roteiro%20no%20Parque%20Nacional%20Cavernas%20do%20Peruaçu.%20Pode%20me%20passar%20opções%20de%20datas%20e%20valores?" target="_blank" rel="noopener">Quero esse</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card tourCard">
+          <div>
+            <h3>Expedição (2–4 dias)</h3>
+            <div class="tagRow">
+              <span class="tag">Experiência completa</span>
+              <span class="tag">Trilhas</span>
+              <span class="tag">Cânion</span>
+            </div>
+            <ul>
+              <li>Mais tempo para explorar com calma</li>
+              <li>Combina pontos clássicos + adicionais</li>
+              <li>Planejamento inteligente de logística</li>
+            </ul>
+          </div>
+          <div class="feature">
+            <h3 style="margin:0 0 8px">Ideal para</h3>
+            <p style="margin:0">Quem quer ver o melhor do parque com profundidade e conforto.</p>
+            <div style="margin-top:12px">
+              <a class="btn primary small" href="https://wa.me/5538991307687?text=Olá!%20Gostaria%20de%20agendar%20um%20roteiro%20no%20Parque%20Nacional%20Cavernas%20do%20Peruaçu.%20Pode%20me%20passar%20opções%20de%20datas%20e%20valores?" target="_blank" rel="noopener">Montar roteiro</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria" class="section">
+    <div class="container">
+      <h2>Galeria • Peruaçu e arte rupestre</h2>
+      <p>Um pouquinho do que te espera: cânion, cavernas e grafismos ancestrais.</p>
+
+      <div class="gallery" aria-label="Galeria de imagens">
+        <figure class="gItem g1"><img src="assets/img/peruacu-1.jpg" alt="Grupo na entrada da caverna" loading="lazy" width="1200" height="675"></figure>
+        <figure class="gItem g2"><img src="assets/img/peruacu-2.jpg" alt="Trilha sob paredão no Peruaçu" loading="lazy" width="1200" height="675"></figure>
+
+        <figure class="gItem g3"><img src="assets/img/rupestre-1.jpg" alt="Painel de pinturas rupestres no Peruaçu" loading="lazy" width="800" height="1000"></figure>
+        <figure class="gItem g4"><img src="assets/img/rupestre-4.jpg" alt="Detalhe de pintura rupestre" loading="lazy" width="800" height="1000"></figure>
+        <figure class="gItem g5"><img src="assets/img/peruacu-3.jpg" alt="Vista do cânion a partir da caverna" loading="lazy" width="800" height="1000"></figure>
+
+        <figure class="gItem g6"><img src="assets/img/peruacu-5.jpg" alt="Travessia e paisagem do Peruaçu" loading="lazy" width="1600" height="680"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-funciona" class="section">
+    <div class="container">
+      <h2>Como funciona a visita</h2>
+      <p>Simples, organizado e sem dor de cabeça.</p>
+
+      <div class="grid3">
+        <div class="feature">
+          <h3>1) Agende antes</h3>
+          <p>A visitação é gratuita, mas exige <b>agendamento prévio</b> e <b>guia credenciado</b>. Fale comigo no WhatsApp.</p>
+        </div>
+        <div class="feature">
+          <h3>2) Defina o roteiro</h3>
+          <p>Eu te ajudo a escolher os melhores atrativos: <b>Gruta do Janelão</b>, <b>Lapa do Boquete</b>, <b>Lapa Bonita</b> e <b>Arco do André</b>.</p>
+        </div>
+        <div class="feature">
+          <h3>3) Vá preparado</h3>
+          <p>Tênis/ bota, água, lanche e roupa confortável. Eu passo a lista completa e ajusto o ritmo ao grupo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="container">
+      <h2>Dúvidas frequentes</h2>
+      <div class="grid2 faq">
+        <details>
+          <summary>Precisa mesmo de guia?</summary>
+          <p>Sim. A entrada é gratuita, mas o parque exige <b>condutor credenciado</b> e <b>agendamento</b> para a visitação.</p>
+        </details>
+        <details>
+          <summary>Quantos dias são ideais?</summary>
+          <p>O ideal é planejar <b>2 a 4 dias</b> para aproveitar os principais atrativos com calma e boas paradas para fotos e explicações.</p>
+        </details>
+        <details>
+          <summary>É pesado? Serve para iniciantes?</summary>
+          <p>Há opções para diferentes níveis. Ajusto o roteiro ao seu grupo (ritmo, paradas e distâncias) para ficar confortável e seguro.</p>
+        </details>
+        <details>
+          <summary>Como eu falo com você?</summary>
+          <p>Use o botão de WhatsApp (agendamento rápido) ou ligue: <b>(38) 99130‑7687</b>. Também respondo pelo Instagram.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="section">
+    <div class="container">
+      <h2>Contato e agendamento</h2>
+      <p>Me mande uma mensagem com data, quantidade de pessoas e se prefere 1 dia ou expedição (2–4 dias).</p>
+
+      <div class="contactGrid">
+        <div class="card contactBox">
+          <h3 style="margin:0 0 10px">Fale comigo agora</h3>
+          <ul class="list">
+            <li>
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 4h10v16H7z" stroke="currentColor" stroke-width="2"/><path d="M9 8h6" stroke="currentColor" stroke-width="2"/><path d="M9 12h6" stroke="currentColor" stroke-width="2"/></svg>
+              </span>
+              <div>
+                <b>WhatsApp</b><br />
+                <small>Resposta rápida para agendar</small><br />
+                <a class="btn primary small" href="https://wa.me/5538991307687?text=Olá!%20Gostaria%20de%20agendar%20um%20roteiro%20no%20Parque%20Nacional%20Cavernas%20do%20Peruaçu.%20Pode%20me%20passar%20opções%20de%20datas%20e%20valores?" target="_blank" rel="noopener">Abrir WhatsApp</a>
+              </div>
+            </li>
+            <li>
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2"/><path d="M4 7v10h16V7" stroke="currentColor" stroke-width="2"/></svg>
+              </span>
+              <div>
+                <b>Telefone</b><br />
+                <small><a href="tel:+5538991307687">(38) 99130‑7687</a></small>
+              </div>
+            </li>
+            <li>
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 3h10v18H7z" stroke="currentColor" stroke-width="2"/><path d="M9 7h6" stroke="currentColor" stroke-width="2"/></svg>
+              </span>
+              <div>
+                <b>Instagram</b><br />
+                <small><a href="https://www.instagram.com/caminhosdoperuacu/" target="_blank" rel="noopener">@caminhosdoperuacu</a></small>
+              </div>
+            </li>
+          </ul>
+
+          <div style="margin-top:14px" class="feature">
+            <h3 style="margin:0 0 6px">Dica de mensagem</h3>
+            <p style="margin:0">“Olá! Vou ao Peruaçu em <b>__</b>. Somos <b>__</b> pessoas. Quero fazer <b>__</b> dias. Pode me orientar e passar valores?”</p>
+          </div>
+        </div>
+
+        <div class="card contactBox">
+          <h3 style="margin:0 0 10px">Pedido rápido (gera mensagem no WhatsApp)</h3>
+          <form class="form" id="quickForm">
+            <div>
+              <label for="nome">Seu nome</label>
+              <input id="nome" name="nome" autocomplete="name" placeholder="Ex: Maria" required />
+            </div>
+            <div>
+              <label for="pessoas">Quantidade de pessoas</label>
+              <select id="pessoas" name="pessoas" required>
+                <option value="">Selecione…</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option>
+                <option>5+</option>
+              </select>
+            </div>
+            <div>
+              <label for="dias">Duração</label>
+              <select id="dias" name="dias" required>
+                <option value="">Selecione…</option>
+                <option>Meio dia</option>
+                <option>1 dia</option>
+                <option>2 dias</option>
+                <option>3 dias</option>
+                <option>4 dias</option>
+              </select>
+            </div>
+            <div>
+              <label for="data">Data (aproximada)</label>
+              <input id="data" name="data" type="text" placeholder="Ex: 15/03" />
+            </div>
+            <div>
+              <label for="msg">O que você quer ver?</label>
+              <textarea id="msg" name="msg" placeholder="Ex: Janelão + Lapa do Boquete + pinturas rupestres…"></textarea>
+            </div>
+            <button class="btn primary" type="submit">Enviar no WhatsApp</button>
+            <div class="fine">Sem cadastro. Apenas abre o WhatsApp com a mensagem pronta.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="floatWA" aria-label="Botão flutuante do WhatsApp">
+  <a href="https://wa.me/5538991307687?text=Olá!%20Gostaria%20de%20agendar%20um%20roteiro%20no%20Parque%20Nacional%20Cavernas%20do%20Peruaçu.%20Pode%20me%20passar%20opções%20de%20datas%20e%20valores?" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-11.6 6.3L4 19l1.4-4.2A7.5 7.5 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="2"/><path d="M9 9.5c.4 2 2.5 4.1 4.5 4.5.3.1.7 0 1-.2l1-.7c.3-.2.7-.2 1 0l1 .8c.3.2.4.6.2 1-.6 1.3-2 2-3.4 1.7-3.7-.8-6.8-3.9-7.6-7.6-.3-1.4.4-2.8 1.7-3.4.4-.2.8-.1 1 .2l.8 1c.2.3.2.7 0 1l-.7 1c-.2.3-.3.7-.2 1Z" fill="currentColor" opacity=".9"/></svg>
+    <span>WhatsApp</span>
+  </a>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div>
+        <b>Caminhos do Peruaçu</b><br />
+        <span class="muted">🥾 Guia Turístico | Ecoturismo • Itacarambi – MG</span>
+      </div>
+      <div class="muted">
+        <a href="https://www.instagram.com/caminhosdoperuacu/" target="_blank" rel="noopener">Instagram</a> •
+        <a href="tel:+5538991307687">(38) 99130‑7687</a>
+      </div>
+    </div>
+    <div style="margin-top:10px" class="muted">
+      © <span id="year"></span> Caminhos do Peruaçu. Feito para alta performance (HTML + CSS + JS leve).
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ano no rodapé
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Formulário -> WhatsApp com mensagem pronta (sem backend)
+  const form = document.getElementById('quickForm');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nome = document.getElementById('nome').value.trim();
+    const pessoas = document.getElementById('pessoas').value;
+    const dias = document.getElementById('dias').value;
+    const data = document.getElementById('data').value.trim();
+    const msg = document.getElementById('msg').value.trim();
+
+    const parts = [
+      `Olá! Eu sou ${nome} e gostaria de agendar um roteiro no Parque Nacional Cavernas do Peruaçu.`,
+      pessoas ? `Somos ${pessoas} pessoa(s).` : '',
+      dias ? `Duração: ${dias}.` : '',
+      data ? `Data (aprox.): ${data}.` : '',
+      msg ? `Interesse: ${msg}.` : '',
+      `Pode me orientar e passar valores?`
+    ].filter(Boolean);
+
+    const text = encodeURIComponent(parts.join(' '));
+    const url = "https://wa.me/5538991307687?text=" + text;
+    window.open(url, "_blank", "noopener");
+  });
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Caminhos do Peruaçu",
+  "description": "Guia turístico e ecoturismo no Parque Nacional Cavernas do Peruaçu (MG). Roteiros com cavernas e arte rupestre.",
+  "areaServed": "Itacarambi, MG",
+  "telephone": "+55 38 99130-7687",
+  "url": "https://caminhosdoperuacu.com.br",
+  "sameAs": [
+    "https://www.instagram.com/caminhosdoperuacu/"
+  ],
+  "image": [
+    "https://caminhosdoperuacu.com.br/assets/img/peruacu-6.jpg"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Itacarambi",
+    "addressRegion": "MG",
+    "addressCountry": "BR"
+  }
+}
+</script>
+</body>
+</html>
