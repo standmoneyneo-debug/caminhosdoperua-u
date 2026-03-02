@@ -2,16 +2,14 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#2b2b2b" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f1e6" />
 
   <title>Caminhos do Peruaçu • Guia turístico no Parque Nacional Cavernas do Peruaçu</title>
   <meta name="description" content="Ecoturismo e turismo de experiências no Parque Nacional Cavernas do Peruaçu (MG). Roteiros com arte rupestre e cavernas como Gruta do Janelão, Lapa do Boquete, Lapa Bonita e Arco do André. Agendamento e guia credenciado." />
   <meta name="robots" content="index,follow" />
 
-  <!-- Favicon na RAIZ -->
-  <link rel="icon" href="logo.png" />
-
+  <!-- Open Graph / Social -->
   <meta property="og:title" content="Caminhos do Peruaçu" />
   <meta property="og:description" content="Guia turístico credenciado no Parque Nacional Cavernas do Peruaçu. Trilhas, cavernas e arte rupestre. Agende pelo WhatsApp." />
   <meta property="og:type" content="website" />
@@ -20,23 +18,43 @@
   <meta property="og:url" content="https://caminhosdoperuacu.com.br/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Preload da imagem principal na RAIZ -->
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" />
+
+  <!-- Perf hints -->
   <link rel="preload" as="image" href="peruacu-6.jpg" imagesrcset="peruacu-6.jpg 1x" />
+  <link rel="preload" as="image" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <style>
+    /* ===============================
+       CAMINHOS DO PERUAÇU — ULTRA PRO
+       Mobile-first • alto contraste • rápido • leve
+       =============================== */
+
     :root{
-      --bg:#0e0f10;
-      --surface:#15181b;
-      --surface2:#1b2025;
-      --text:#f4f1ea;
-      --muted:#c9c3b6;
-      --brand:#d39a3b; /* ocre */
-      --brand2:#9c3a2d; /* vermelho-terra */
-      --ok:#1dd1a1;
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
-      --radius: 22px;
-      --max: 1120px;
+      --bg:#f6f1e6;          /* areia clara */
+      --surface:#ffffff;
+      --surface2:#f1eadc;
+
+      --text:#1f1f1f;
+      --muted:#6f675a;
+
+      --brand:#c07a2c;       /* ocre Peruaçu */
+      --brand2:#8c3a22;      /* terra */
+      --accent:#3f6b4b;      /* natureza */
+
+      --ok:#19b28b;
+
+      --shadow:0 18px 50px rgba(0,0,0,.10);
+      --shadow2:0 10px 28px rgba(0,0,0,.08);
+      --radius:20px;
+      --radius2:16px;
+      --max:1140px;
+
+      --ring: 0 0 0 4px rgba(192,122,44,.22);
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -44,125 +62,491 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
       background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(211,154,59,.18), transparent 60%),
-        radial-gradient(900px 550px at 100% 0%, rgba(156,58,45,.14), transparent 55%),
-        radial-gradient(900px 600px at 0% 100%, rgba(211,154,59,.08), transparent 60%),
+        radial-gradient(1200px 680px at 5% 0%, rgba(192,122,44,.18), transparent 55%),
+        radial-gradient(900px 580px at 100% 10%, rgba(140,58,34,.12), transparent 50%),
+        radial-gradient(900px 620px at 0% 100%, rgba(63,107,75,.10), transparent 55%),
         var(--bg);
-      line-height:1.45;
+      line-height:1.5;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
+      overflow-x:hidden;
     }
+
     a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
     .container{max-width:var(--max); margin:0 auto; padding:0 20px}
-    .pill{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid rgba(255,255,255,.10); border-radius:999px; background:rgba(255,255,255,.04)}
-    .dot{width:8px; height:8px; border-radius:50%; background:var(--ok); box-shadow:0 0 0 6px rgba(29,209,161,.14)}
-    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px); background:rgba(14,15,16,.68); border-bottom:1px solid rgba(255,255,255,.08)}
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:16px}
-    .brand{display:flex; align-items:center; gap:12px; min-width:200px}
-    .brand img{width:42px; height:42px; border-radius:12px; background:#fff}
-    .brand b{display:block; letter-spacing:.2px}
+
+    /* A11y */
+    .skip{
+      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip:focus{
+      left:16px; top:16px; width:auto; height:auto; padding:10px 12px; border-radius:12px;
+      background:var(--surface); box-shadow:var(--shadow2); z-index:999;
+    }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:60;
+      background: rgba(246,241,230,.78);
+      backdrop-filter: blur(10px) saturate(140%);
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0; gap:16px;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:12px; min-width:200px;
+    }
+    .brand img{
+      width:44px; height:44px; border-radius:14px;
+      background:#fff; box-shadow:0 8px 20px rgba(0,0,0,.08);
+    }
+    .brand b{display:block; letter-spacing:.2px; font-weight:900}
     .brand span{display:block; color:var(--muted); font-size:12.5px; margin-top:1px}
-    .menu{display:flex; gap:18px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
-    .menu a{color:var(--muted); font-weight:600; font-size:14px; padding:10px 10px; border-radius:12px}
-    .menu a:hover{background:rgba(255,255,255,.06); color:var(--text)}
-    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:14px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06); color:var(--text); font-weight:800; letter-spacing:.2px; cursor:pointer}
-    .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.09)}
-    .btn:active{transform: translateY(0)}
-    .btn.primary{background:linear-gradient(135deg, rgba(211,154,59,.95), rgba(156,58,45,.9)); border:none; box-shadow:0 16px 40px rgba(156,58,45,.18)}
-    .btn.primary:hover{filter:saturate(1.1)}
-    .btn.small{padding:10px 12px; border-radius:12px; font-weight:800; font-size:14px}
-    .btn.whats{background:#1f2c24; border:1px solid rgba(29,209,161,.25)}
-    .btn.whats:hover{background:#223228}
-    .hero{padding:42px 0 22px}
-    .heroGrid{display:grid; grid-template-columns: 1.05fr .95fr; gap:26px; align-items:center}
-    .hTitle{font-size: clamp(34px, 4.2vw, 52px); line-height:1.05; margin:16px 0 12px}
-    .hTitle em{font-style:normal; color:var(--brand)}
-    .lead{color:var(--muted); font-size:18px; max-width:58ch; margin:0 0 18px}
+
+    .menu{
+      display:flex; gap:8px; align-items:center; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .menu a{
+      color:rgba(31,31,31,.82);
+      font-weight:800; font-size:14px;
+      padding:10px 12px; border-radius:14px;
+    }
+    .menu a:hover{background:rgba(255,255,255,.75); box-shadow:0 8px 20px rgba(0,0,0,.06)}
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px;
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.10);
+      background:rgba(255,255,255,.70);
+      color:var(--text);
+      font-weight:900;
+      letter-spacing:.2px;
+      cursor:pointer;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+      box-shadow: 0 10px 24px rgba(0,0,0,.06);
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow:0 14px 30px rgba(0,0,0,.08)}
+    .btn:active{transform:translateY(0)}
+    .btn:focus-visible{outline:none; box-shadow: var(--shadow2), var(--ring)}
+    .btn.small{padding:10px 12px; border-radius:14px; font-size:14px}
+
+    .btn.primary{
+      border:none;
+      color:#fff;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 18px 40px rgba(140,58,34,.22);
+    }
+    .btn.primary:hover{filter:saturate(1.05) contrast(1.02)}
+
+    .btn.whats{
+      border:1px solid rgba(25,178,139,.25);
+      background: rgba(25,178,139,.08);
+    }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:999px;
+      background: rgba(255,255,255,.65);
+      box-shadow: 0 10px 24px rgba(0,0,0,.06);
+      font-weight:800;
+      color: rgba(31,31,31,.92);
+    }
+    .dot{
+      width:9px; height:9px; border-radius:50%;
+      background:var(--ok);
+      box-shadow:0 0 0 6px rgba(25,178,139,.14);
+    }
+
+    /* Hero (cinematográfico e leve) */
+    .hero{
+      position:relative;
+      padding:56px 0 24px;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:-80px -40px -40px -40px;
+      background:
+        linear-gradient( to bottom, rgba(246,241,230,.88), rgba(246,241,230,.98) 55%, rgba(246,241,230,1) ),
+        radial-gradient(900px 520px at 20% 20%, rgba(192,122,44,.18), transparent 60%),
+        url('peruacu-6.jpg') center/cover no-repeat;
+      filter:saturate(1.05) contrast(1.02);
+      transform: scale(1.02);
+      z-index:-2;
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(800px 400px at 70% 30%, rgba(255,255,255,.55), transparent 60%),
+        radial-gradient(900px 500px at 30% 60%, rgba(63,107,75,.10), transparent 70%);
+      z-index:-1;
+      pointer-events:none;
+    }
+
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap:24px;
+      align-items:center;
+    }
+
+    .kicker{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+    }
+
+    .hTitle{
+      font-size: clamp(34px, 4.3vw, 54px);
+      line-height:1.05;
+      margin:14px 0 12px;
+      letter-spacing:-.3px;
+      font-weight:950;
+    }
+    .hTitle em{font-style:normal; color:var(--brand2)}
+    .lead{
+      color:rgba(31,31,31,.82);
+      font-size:18px;
+      max-width:60ch;
+      margin:0 0 18px;
+    }
+
     .ctaRow{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
-    .fine{color:rgba(255,255,255,.72); font-size:13px; margin-top:10px}
-    .card{border-radius:var(--radius); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.10); box-shadow: var(--shadow)}
-    .heroMedia{position:relative; overflow:hidden}
-    .heroMedia img{width:100%; height:100%; display:block; object-fit:cover; aspect-ratio: 4 / 5; filter: contrast(1.05) saturate(1.08)}
-    .heroBadge{position:absolute; left:16px; bottom:16px; right:16px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
-    .mini{padding:10px 12px; border-radius:14px; background:rgba(14,15,16,.62); border:1px solid rgba(255,255,255,.14); backdrop-filter: blur(10px)}
-    .mini b{display:block; font-size:13px}
-    .mini span{display:block; font-size:12px; color:rgba(255,255,255,.74)}
+    .fine{color:rgba(31,31,31,.72); font-size:13px; margin-top:12px}
+
+    /* Cards */
+    .card{
+      border-radius:var(--radius);
+      background: rgba(255,255,255,.76);
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .heroMedia{
+      position:relative;
+      min-height: 420px;
+    }
+    .heroMedia img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      aspect-ratio: 4 / 5;
+      filter: saturate(1.06) contrast(1.02);
+      transform: scale(1.01);
+    }
+
+    .heroBadge{
+      position:absolute;
+      left:16px; right:16px; bottom:16px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .mini{
+      flex:1;
+      min-width: 170px;
+      padding:12px 12px;
+      border-radius:16px;
+      background: rgba(255,255,255,.78);
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow2);
+      backdrop-filter: blur(10px);
+    }
+    .mini b{display:block; font-size:13px; font-weight:950}
+    .mini span{display:block; font-size:12px; color:rgba(31,31,31,.70)}
+
+    /* Sections */
     .section{padding:34px 0}
-    .section h2{font-size: clamp(22px, 2.4vw, 30px); margin:0 0 12px}
+    .section h2{
+      font-size: clamp(22px, 2.4vw, 32px);
+      margin:0 0 10px;
+      letter-spacing:-.2px;
+      font-weight:950;
+    }
     .section p{color:var(--muted); margin:0}
-    .grid3{display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-top:18px}
-    .grid2{display:grid; grid-template-columns: repeat(2,1fr); gap:18px; margin-top:18px}
-    .feature{padding:18px; border-radius:18px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.10)}
-    .feature h3{margin:0 0 8px; font-size:16px}
-    .feature p{margin:0; color:rgba(255,255,255,.74); font-size:14px}
+
+    .grid3{display:grid; grid-template-columns: repeat(3,1fr); gap:14px; margin-top:18px}
+    .grid2{display:grid; grid-template-columns: repeat(2,1fr); gap:16px; margin-top:18px}
+
+    .feature{
+      padding:18px;
+      border-radius:18px;
+      background: rgba(255,255,255,.88);
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow: var(--shadow2);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .feature:hover{transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,.10)}
+    .feature h3{margin:0 0 8px; font-size:16px; font-weight:950}
+    .feature p{margin:0; color:rgba(31,31,31,.72); font-size:14px}
+
     .kpi{display:flex; gap:12px; align-items:flex-start}
-    .icon{width:38px; height:38px; border-radius:14px; display:grid; place-items:center; background:linear-gradient(135deg, rgba(211,154,59,.24), rgba(156,58,45,.18)); border:1px solid rgba(255,255,255,.10);}
+    .icon{
+      width:40px; height:40px; border-radius:14px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(192,122,44,.22), rgba(140,58,34,.14));
+      border:1px solid rgba(0,0,0,.06);
+      flex:0 0 auto;
+    }
     .icon svg{width:20px; height:20px; opacity:.95}
-    .tourCard{padding:18px; display:grid; grid-template-columns: 1.2fr .8fr; gap:14px; align-items:center}
-    .tourCard h3{margin:0 0 8px}
-    .tourCard ul{margin:10px 0 0; padding-left:18px; color:rgba(255,255,255,.78); font-size:14px}
+
+    /* Story / value props */
+    .story{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      margin-top:18px;
+      align-items:stretch;
+    }
+    .storyCard{
+      padding:18px;
+      border-radius:var(--radius);
+      background: rgba(255,255,255,.86);
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow2);
+      position:relative;
+      overflow:hidden;
+    }
+    .storyCard::before{
+      content:"";
+      position:absolute; inset:-40px -60px auto auto;
+      width:220px; height:220px;
+      background: radial-gradient(circle at 30% 30%, rgba(192,122,44,.25), transparent 60%);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+    .storyCard b{font-weight:950}
+    .bullets{
+      margin:14px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    .bullets li{
+      display:flex; gap:10px; align-items:flex-start;
+      color:rgba(31,31,31,.78);
+      font-weight:750;
+    }
+    .tick{
+      width:20px; height:20px; border-radius:7px;
+      background: rgba(25,178,139,.14);
+      border:1px solid rgba(25,178,139,.24);
+      display:grid; place-items:center;
+      flex:0 0 auto;
+      margin-top:1px;
+    }
+    .tick svg{width:14px; height:14px}
+
+    /* Tours */
+    .tourCard{
+      padding:18px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    .tourCard h3{margin:0 0 8px; font-weight:950}
+    .tourCard ul{
+      margin:10px 0 0;
+      padding-left:18px;
+      color:rgba(31,31,31,.76);
+      font-size:14px;
+    }
+
     .tagRow{display:flex; gap:8px; flex-wrap:wrap}
-    .tag{font-size:12px; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10); color:rgba(255,255,255,.78)}
-    .gallery{display:grid; grid-template-columns: repeat(12,1fr); gap:10px; margin-top:18px}
-    .gItem{border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.10); background:#0b0c0d}
-    .gItem img{width:100%; height:100%; display:block; object-fit:cover}
+    .tag{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(63,107,75,.10);
+      border:1px solid rgba(63,107,75,.18);
+      color: rgba(31,31,31,.80);
+      font-weight:850;
+    }
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(12,1fr);
+      gap:10px;
+      margin-top:18px;
+    }
+    .gItem{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.08);
+      background:#fff;
+      box-shadow: var(--shadow2);
+      position:relative;
+    }
+    .gItem img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition: transform .45s ease;
+      transform: scale(1.01);
+    }
+    .gItem:hover img{transform: scale(1.06)}
     .g1{grid-column: span 7; aspect-ratio: 16/9}
     .g2{grid-column: span 5; aspect-ratio: 16/9}
     .g3{grid-column: span 4; aspect-ratio: 4/5}
     .g4{grid-column: span 4; aspect-ratio: 4/5}
     .g5{grid-column: span 4; aspect-ratio: 4/5}
     .g6{grid-column: span 12; aspect-ratio: 21/9}
-    .faq details{border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); border-radius:18px; padding:14px 16px}
-    .faq summary{cursor:pointer; font-weight:800}
-    .faq p{margin:10px 0 0; color:rgba(255,255,255,.76); font-size:14px}
-    .contactGrid{display:grid; grid-template-columns: 1fr 1fr; gap:18px; align-items:start}
+
+    /* FAQ */
+    .faq details{
+      border:1px solid rgba(0,0,0,.08);
+      background: rgba(255,255,255,.86);
+      border-radius:18px;
+      padding:14px 16px;
+      box-shadow: var(--shadow2);
+    }
+    .faq summary{cursor:pointer; font-weight:950}
+    .faq p{margin:10px 0 0; color:rgba(31,31,31,.74); font-size:14px}
+
+    /* Contact */
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      align-items:start;
+    }
     .contactBox{padding:18px}
-    .list{margin:10px 0 0; padding:0; list-style:none; display:grid; gap:10px}
-    .list li{display:flex; gap:10px; align-items:flex-start; color:rgba(255,255,255,.8)}
-    .list small{color:rgba(255,255,255,.68)}
+
+    .list{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:12px;
+    }
+    .list li{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      color:rgba(31,31,31,.85);
+    }
+    .list small{color:rgba(31,31,31,.70)}
+    .list a.btn{margin-top:10px}
+
     .form{display:grid; gap:10px; margin-top:10px}
-    label{font-size:13px; color:rgba(255,255,255,.75)}
+    label{font-size:13px; color:rgba(31,31,31,.74); font-weight:850}
     input, textarea, select{
       width:100%;
       padding:12px 12px;
       border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(10,12,13,.55);
+      border:1px solid rgba(0,0,0,.12);
+      background: rgba(255,255,255,.92);
       color:var(--text);
       outline:none;
+      transition: box-shadow .15s ease, border-color .15s ease;
+      font-weight:700;
     }
-    textarea{min-height:110px; resize:vertical}
-    input:focus, textarea:focus, select:focus{border-color:rgba(211,154,59,.55); box-shadow: 0 0 0 4px rgba(211,154,59,.14)}
-    footer{padding:28px 0 34px; border-top:1px solid rgba(255,255,255,.08); color:rgba(255,255,255,.70)}
-    .foot{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
-    .muted{color:rgba(255,255,255,.70)}
-    .floatWA{position:fixed; right:16px; bottom:16px; z-index:80}
-    .floatWA a{display:inline-flex; align-items:center; gap:10px; padding:12px 14px; border-radius:999px; background:#1f2c24; border:1px solid rgba(29,209,161,.25); box-shadow:0 16px 50px rgba(0,0,0,.45)}
-    .floatWA span{font-weight:900}
-    .floatWA svg{width:18px; height:18px}
+    textarea{min-height:112px; resize:vertical}
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(192,122,44,.55);
+      box-shadow: var(--ring);
+    }
 
-    @media (max-width: 920px){
+    /* Footer */
+    footer{
+      padding:28px 0 120px; /* espaço para CTA fixo mobile */
+      border-top:1px solid rgba(0,0,0,.06);
+      color:rgba(31,31,31,.70);
+    }
+    .foot{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
+    .muted{color:rgba(31,31,31,.70)}
+
+    /* Fixed CTA bar (converte muito no celular) */
+    .ctaBar{
+      position:fixed;
+      left:0; right:0; bottom:0;
+      z-index:90;
+      padding:12px max(12px, env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+      background: rgba(246,241,230,.92);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(0,0,0,.08);
+      box-shadow: 0 -14px 50px rgba(0,0,0,.08);
+    }
+    .ctaBarInner{
+      max-width:var(--max);
+      margin:0 auto;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .ctaBar .btn{flex:1}
+    .ctaBar .btn.secondary{
+      background: rgba(255,255,255,.78);
+    }
+
+    /* Micro-animations (leve e “cinematográfico”) */
+    @media (prefers-reduced-motion: no-preference){
+      .reveal{
+        animation: rise .8s ease both;
+      }
+      .delay1{animation-delay:.06s}
+      .delay2{animation-delay:.12s}
+      .delay3{animation-delay:.18s}
+      @keyframes rise{
+        from{opacity:0; transform:translateY(10px)}
+        to{opacity:1; transform:translateY(0)}
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
       .heroGrid{grid-template-columns: 1fr;}
       .heroMedia img{aspect-ratio: 16/10}
-      .grid3{grid-template-columns: 1fr;}
-      .grid2{grid-template-columns: 1fr;}
-      .tourCard{grid-template-columns:1fr;}
-      .contactGrid{grid-template-columns:1fr;}
       .menu{display:none}
+      .tourCard{grid-template-columns:1fr}
+      .story{grid-template-columns:1fr}
+      .contactGrid{grid-template-columns:1fr}
+    }
+
+    @media (max-width: 600px){
+      .container{padding:0 16px}
+      .hTitle{font-size: 32px; line-height:1.12}
+      .lead{font-size:16px}
+      .btn{width:100%}
+      .ctaRow{flex-direction:column}
+      .grid3{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+      .hero{padding:46px 0 18px}
+      footer{padding-bottom:140px}
+    }
+
+    /* Desktop: CTA bar menor e discreta */
+    @media (min-width: 901px){
+      .ctaBar{padding:10px 18px}
+      .ctaBarInner{justify-content:flex-end}
+      .ctaBar .btn{flex:0 0 auto}
     }
   </style>
 </head>
 
 <body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
 <header>
   <div class="container">
     <nav class="nav" aria-label="Navegação principal">
-      <a class="brand" href="#top">
-        <!-- logo na RAIZ -->
-        <img src="logo.png" alt="Logo Caminhos do Peruaçu" width="42" height="42" loading="eager" />
+      <a class="brand" href="#top" aria-label="Início">
+        <img src="logo.png" alt="Logo Caminhos do Peruaçu" width="44" height="44" loading="eager" decoding="async" />
         <div>
           <b>Caminhos do Peruaçu</b>
-          <span>Guia turístico • Ecoturismo • MG</span>
+          <span>Guia turístico • Ecoturismo • Itacarambi — MG</span>
         </div>
       </a>
 
@@ -176,7 +560,7 @@
 
       <a class="btn primary small"
          href="https://wa.me/5538991307687?text=Olá!%20Gostaria%20de%20agendar%20um%20roteiro%20no%20Parque%20Nacional%20Cavernas%20do%20Peruaçu.%20Pode%20me%20passar%20opções%20de%20datas%20e%20valores?"
-         target="_blank" rel="noopener">
+         target="_blank" rel="noopener" aria-label="Agendar no WhatsApp">
         Agendar no WhatsApp
       </a>
     </nav>
@@ -184,90 +568,52 @@
 </header>
 
 <main id="top">
-  <section class="hero">
+  <div id="conteudo"></div>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Apresentação">
     <div class="container">
       <div class="heroGrid">
-        <div>
-          <span class="pill"><span class="dot"></span> Condutor credenciado • Parque Nacional Cavernas do Peruaçu</span>
-          <h1 class="hTitle">Viva o <em>Peruaçu</em> com segurança, história e natureza.</h1>
-          <p class="lead">
-            Roteiros guiados por cavernas, trilhas e galerias impressionantes de <b>arte rupestre</b>.
-            Ideal para planejar <b>2 a 4 dias</b> de viagem — com agendamento prévio.
+        <div class="reveal">
+          <div class="kicker">
+            <span class="pill"><span class="dot"></span> Condutor credenciado • Parque Nacional Cavernas do Peruaçu</span>
+            <span class="pill">🏞️ Itacarambi — MG</span>
+          </div>
+
+          <h1 class="hTitle reveal delay1">
+            Descubra um dos lugares mais impressionantes do Brasil: <em>o Peruaçu</em>.
+          </h1>
+
+          <p class="lead reveal delay2">
+            Roteiros guiados por cavernas gigantes, cânion, trilhas e galerias de <b>arte rupestre milenar</b>.
+            Ideal para planejar <b>2 a 4 dias</b> de viagem — com orientação completa e agendamento prévio.
           </p>
 
-          <div class="ctaRow">
+          <div class="ctaRow reveal delay3">
             <a class="btn primary"
                href="https://wa.me/5538991307687?text=Olá!%20Gostaria%20de%20agendar%20um%20roteiro%20no%20Parque%20Nacional%20Cavernas%20do%20Peruaçu.%20Pode%20me%20passar%20opções%20de%20datas%20e%20valores?"
-               target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+               target="_blank" rel="noopener" aria-label="Agendar agora pelo WhatsApp">
               Agendar agora
             </a>
 
             <a class="btn whats" href="tel:+5538991307687" aria-label="Ligar para (38) 99130-7687">
-              Ligar: (38) 99130-7687
+              📞 Ligar: (38) 99130-7687
             </a>
 
             <a class="btn" href="https://www.instagram.com/caminhosdoperuacu/" target="_blank" rel="noopener" aria-label="Abrir Instagram">
-              Instagram
+              📷 Instagram
             </a>
           </div>
 
-          <div class="fine">📍 Base: Itacarambi • MG • Norte de Minas — atendimento para visitantes do parque e região.</div>
-
-          <div class="section" style="padding:18px 0 0">
-            <div class="grid3">
-              <div class="feature">
-                <div class="kpi">
-                  <div class="icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="2"/>
-                      <path d="M12 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3>Roteiros clássicos</h3>
-                    <p>Gruta do Janelão, Lapa do Boquete, Lapa Bonita e Arco do André.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="feature">
-                <div class="kpi">
-                  <div class="icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M4 20h16" stroke="currentColor" stroke-width="2"/>
-                      <path d="M6 20V9l6-5 6 5v11" stroke="currentColor" stroke-width="2"/>
-                      <path d="M10 20v-6h4v6" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3>Turismo de experiências</h3>
-                    <p>Histórias locais, geologia, cultura e vivência real no cânion.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="feature">
-                <div class="kpi">
-                  <div class="icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3>Visita segura</h3>
-                    <p>Planejamento, orientação e boas práticas para trilha e caverna.</p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
+          <div class="fine">✅ Visitação organizada • ✅ Dicas do que levar • ✅ Ritmo ajustado ao seu grupo</div>
         </div>
 
-        <div class="card heroMedia" aria-label="Foto do Peruaçu">
-          <!-- imagem na RAIZ -->
-          <img src="peruacu-6.jpg" alt="Paisagem do Parque Nacional Cavernas do Peruaçu" width="900" height="1125" loading="eager" />
-          <div class="heroBadge">
+        <div class="card heroMedia reveal delay2" aria-label="Foto do Peruaçu">
+          <img src="peruacu-6.jpg"
+               alt="Paisagem do Parque Nacional Cavernas do Peruaçu"
+               width="900" height="1125"
+               loading="eager" decoding="async" />
+          <div class="heroBadge" aria-label="Destaques">
             <div class="mini">
               <b>Visitação</b>
               <span>Gratuita • com guia credenciado</span>
@@ -280,16 +626,138 @@
         </div>
 
       </div>
+
+      <!-- Story / confiança + “National Geographic vibe” -->
+      <div class="story" aria-label="Por que visitar">
+        <div class="storyCard reveal delay1">
+          <h2 style="margin:0 0 6px">Por que visitar o Peruaçu?</h2>
+          <p style="margin:0; color:var(--muted)">
+            Um destino de natureza e arqueologia que surpreende — perfeito para quem quer viver algo único no Brasil.
+          </p>
+          <ul class="bullets">
+            <li>
+              <span class="tick" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span><b>Arte rupestre milenar</b> e história viva do cânion</span>
+            </li>
+            <li>
+              <span class="tick" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span><b>Cavernas gigantes</b>, arcos naturais e paisagens inesquecíveis</span>
+            </li>
+            <li>
+              <span class="tick" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span><b>Experiência segura</b> com condutor credenciado local</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="storyCard reveal delay2">
+          <h2 style="margin:0 0 6px">O que você ganha comigo</h2>
+          <p style="margin:0; color:var(--muted)">
+            Não é só “ir ao lugar”. É entender, sentir e aproveitar melhor — com logística e ritmo certos.
+          </p>
+          <ul class="bullets">
+            <li>
+              <span class="tick" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>Roteiro sob medida (meio dia, 1 dia ou <b>expedição 2–4 dias</b>)</span>
+            </li>
+            <li>
+              <span class="tick" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>Dicas completas (roupa, água, lanche, horários, fotos)</span>
+            </li>
+            <li>
+              <span class="tick" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>Histórias locais, geologia e cultura — <b>turismo de experiência</b></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3 KPIs -->
+      <div class="section" style="padding:18px 0 0">
+        <div class="grid3">
+          <div class="feature reveal">
+            <div class="kpi">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M12 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Roteiros clássicos</h3>
+                <p>Gruta do Janelão, Lapa do Boquete, Lapa Bonita e Arco do André.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature reveal delay1">
+            <div class="kpi">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M4 20h16" stroke="currentColor" stroke-width="2"/>
+                  <path d="M6 20V9l6-5 6 5v11" stroke="currentColor" stroke-width="2"/>
+                  <path d="M10 20v-6h4v6" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Turismo de experiências</h3>
+                <p>Vivência real no cânion: histórias locais, cultura e natureza.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature reveal delay2">
+            <div class="kpi">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Visita segura</h3>
+                <p>Orientação, ritmo adequado ao grupo e boas práticas de trilha/caverna.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 
+  <!-- ROTEIROS -->
   <section id="roteiros" class="section">
     <div class="container">
       <h2>Roteiros em destaque</h2>
       <p>Você escolhe o ritmo — eu ajudo a montar o roteiro ideal (meio dia, 1 dia ou expedição de 2 a 4 dias).</p>
 
       <div class="grid2">
-        <article class="card tourCard">
+        <article class="card tourCard reveal">
           <div>
             <h3>Clássico do Peruaçu (1–2 dias)</h3>
             <div class="tagRow">
@@ -304,18 +772,18 @@
             </ul>
           </div>
 
-          <div class="feature">
+          <div class="feature" style="height:100%">
             <h3 style="margin:0 0 8px">Inclui</h3>
             <p style="margin:0">Orientação completa, ritmo adequado ao grupo e dicas do que levar.</p>
             <div style="margin-top:12px">
               <a class="btn primary small"
-                 href="https://wa.me/5538991307687?text=Olá!%20Gostaria%20de%20agendar%20um%20roteiro%20no%20Parque%20Nacional%20Cavernas%20do%20Peruaçu.%20Pode%20me%20passar%20opções%20de%20datas%20e%20valores?"
+                 href="https://wa.me/5538991307687?text=Olá!%20Gostaria%20de%20agendar%20o%20roteiro%20Clássico%20do%20Peruaçu%20(1–2%20dias).%20Pode%20me%20passar%20datas%20e%20valores?"
                  target="_blank" rel="noopener">Quero esse</a>
             </div>
           </div>
         </article>
 
-        <article class="card tourCard">
+        <article class="card tourCard reveal delay1">
           <div>
             <h3>Expedição (2–4 dias)</h3>
             <div class="tagRow">
@@ -330,12 +798,12 @@
             </ul>
           </div>
 
-          <div class="feature">
+          <div class="feature" style="height:100%">
             <h3 style="margin:0 0 8px">Ideal para</h3>
             <p style="margin:0">Quem quer ver o melhor do parque com profundidade e conforto.</p>
             <div style="margin-top:12px">
               <a class="btn primary small"
-                 href="https://wa.me/5538991307687?text=Olá!%20Gostaria%20de%20agendar%20um%20roteiro%20no%20Parque%20Nacional%20Cavernas%20do%20Peruaçu.%20Pode%20me%20passar%20opções%20de%20datas%20e%20valores?"
+                 href="https://wa.me/5538991307687?text=Olá!%20Gostaria%20de%20montar%20uma%20Expedição%20(2–4%20dias)%20no%20Peruaçu.%20Pode%20me%20passar%20datas%20e%20valores?"
                  target="_blank" rel="noopener">Montar roteiro</a>
             </div>
           </div>
@@ -344,66 +812,81 @@
     </div>
   </section>
 
+  <!-- GALERIA -->
   <section id="galeria" class="section">
     <div class="container">
       <h2>Galeria • Peruaçu e arte rupestre</h2>
       <p>Um pouquinho do que te espera: cânion, cavernas e grafismos ancestrais.</p>
 
       <div class="gallery" aria-label="Galeria de imagens">
-        <figure class="gItem g1"><img src="peruacu-1.jpg" alt="Grupo na entrada da caverna" loading="lazy" width="1200" height="675"></figure>
-        <figure class="gItem g2"><img src="peruacu-2.jpg" alt="Trilha sob paredão no Peruaçu" loading="lazy" width="1200" height="675"></figure>
-        <figure class="gItem g3"><img src="rupestre-1.jpg" alt="Painel de pinturas rupestres no Peruaçu" loading="lazy" width="800" height="1000"></figure>
-        <figure class="gItem g4"><img src="rupestre-4.jpg" alt="Detalhe de pintura rupestre" loading="lazy" width="800" height="1000"></figure>
-        <figure class="gItem g5"><img src="peruacu-3.jpg" alt="Vista do cânion a partir da caverna" loading="lazy" width="800" height="1000"></figure>
-        <figure class="gItem g6"><img src="peruacu-5.jpg" alt="Travessia e paisagem do Peruaçu" loading="lazy" width="1600" height="680"></figure>
+        <figure class="gItem g1 reveal">
+          <img src="peruacu-1.jpg" alt="Grupo na entrada da caverna" loading="lazy" decoding="async" width="1200" height="675">
+        </figure>
+        <figure class="gItem g2 reveal delay1">
+          <img src="peruacu-2.jpg" alt="Trilha sob paredão no Peruaçu" loading="lazy" decoding="async" width="1200" height="675">
+        </figure>
+        <figure class="gItem g3 reveal">
+          <img src="rupestre-1.jpg" alt="Painel de pinturas rupestres no Peruaçu" loading="lazy" decoding="async" width="800" height="1000">
+        </figure>
+        <figure class="gItem g4 reveal delay1">
+          <img src="rupestre-4.jpg" alt="Detalhe de pintura rupestre" loading="lazy" decoding="async" width="800" height="1000">
+        </figure>
+        <figure class="gItem g5 reveal delay2">
+          <img src="peruacu-3.jpg" alt="Vista do cânion a partir da caverna" loading="lazy" decoding="async" width="800" height="1000">
+        </figure>
+        <figure class="gItem g6 reveal delay2">
+          <img src="peruacu-5.jpg" alt="Travessia e paisagem do Peruaçu" loading="lazy" decoding="async" width="1600" height="680">
+        </figure>
       </div>
     </div>
   </section>
 
+  <!-- COMO FUNCIONA -->
   <section id="como-funciona" class="section">
     <div class="container">
       <h2>Como funciona a visita</h2>
       <p>Simples, organizado e sem dor de cabeça.</p>
 
       <div class="grid3">
-        <div class="feature">
+        <div class="feature reveal">
           <h3>1) Agende antes</h3>
           <p>A visitação é gratuita, mas exige <b>agendamento prévio</b> e <b>guia credenciado</b>. Fale comigo no WhatsApp.</p>
         </div>
 
-        <div class="feature">
+        <div class="feature reveal delay1">
           <h3>2) Defina o roteiro</h3>
           <p>Eu te ajudo a escolher os melhores atrativos: <b>Gruta do Janelão</b>, <b>Lapa do Boquete</b>, <b>Lapa Bonita</b> e <b>Arco do André</b>.</p>
         </div>
 
-        <div class="feature">
+        <div class="feature reveal delay2">
           <h3>3) Vá preparado</h3>
-          <p>Tênis/ bota, água, lanche e roupa confortável. Eu passo a lista completa e ajusto o ritmo ao grupo.</p>
+          <p>Tênis/bota, água, lanche e roupa confortável. Eu passo a lista completa e ajusto o ritmo ao grupo.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FAQ -->
   <section id="faq" class="section">
     <div class="container">
       <h2>Dúvidas frequentes</h2>
       <div class="grid2 faq">
-        <details>
+        <details class="reveal">
           <summary>Precisa mesmo de guia?</summary>
           <p>Sim. A entrada é gratuita, mas o parque exige <b>condutor credenciado</b> e <b>agendamento</b> para a visitação.</p>
         </details>
 
-        <details>
+        <details class="reveal delay1">
           <summary>Quantos dias são ideais?</summary>
           <p>O ideal é planejar <b>2 a 4 dias</b> para aproveitar os principais atrativos com calma e boas paradas para fotos e explicações.</p>
         </details>
 
-        <details>
+        <details class="reveal">
           <summary>É pesado? Serve para iniciantes?</summary>
           <p>Há opções para diferentes níveis. Ajusto o roteiro ao seu grupo (ritmo, paradas e distâncias) para ficar confortável e seguro.</p>
         </details>
 
-        <details>
+        <details class="reveal delay1">
           <summary>Como eu falo com você?</summary>
           <p>Use o botão de WhatsApp (agendamento rápido) ou ligue: <b>(38) 99130-7687</b>. Também respondo pelo Instagram.</p>
         </details>
@@ -411,14 +894,15 @@
     </div>
   </section>
 
+  <!-- CONTATO -->
   <section id="contato" class="section">
     <div class="container">
       <h2>Contato e agendamento</h2>
       <p>Me mande uma mensagem com data, quantidade de pessoas e se prefere 1 dia ou expedição (2–4 dias).</p>
 
       <div class="contactGrid">
-        <div class="card contactBox">
-          <h3 style="margin:0 0 10px">Fale comigo agora</h3>
+        <div class="card contactBox reveal">
+          <h3 style="margin:0 0 10px; font-weight:950">Fale comigo agora</h3>
 
           <ul class="list">
             <li>
@@ -441,8 +925,8 @@
             <li>
               <span class="icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2"/>
-                  <path d="M4 7v10h16V7" stroke="currentColor" stroke-width="2"/>
+                  <path d="M6 2h12v20H6z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M9 18h6" stroke="currentColor" stroke-width="2"/>
                 </svg>
               </span>
               <div>
@@ -471,10 +955,10 @@
           </div>
         </div>
 
-        <div class="card contactBox">
-          <h3 style="margin:0 0 10px">Pedido rápido (gera mensagem no WhatsApp)</h3>
+        <div class="card contactBox reveal delay1">
+          <h3 style="margin:0 0 10px; font-weight:950">Pedido rápido (gera mensagem no WhatsApp)</h3>
 
-          <form class="form" id="quickForm">
+          <form class="form" id="quickForm" aria-label="Formulário de pedido rápido">
             <div>
               <label for="nome">Seu nome</label>
               <input id="nome" name="nome" autocomplete="name" placeholder="Ex: Maria" required />
@@ -520,22 +1004,26 @@
   </section>
 </main>
 
-<div class="floatWA" aria-label="Botão flutuante do WhatsApp">
-  <a href="https://wa.me/5538991307687?text=Olá!%20Gostaria%20de%20agendar%20um%20roteiro%20no%20Parque%20Nacional%20Cavernas%20do%20Peruaçu.%20Pode%20me%20passar%20opções%20de%20datas%20e%20valores?"
-     target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M20 11.5a7.5 7.5 0 0 1-11.6 6.3L4 19l1.4-4.2A7.5 7.5 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="2"/>
-      <path d="M9 9.5c.4 2 2.5 4.1 4.5 4.5.3.1.7 0 1-.2l1-.7c.3-.2.7-.2 1 0l1 .8c.3.2.4.6.2 1-.6 1.3-2 2-3.4 1.7-3.7-.8-6.8-3.9-7.6-7.6-.3-1.4.4-2.8 1.7-3.4.4-.2.8-.1 1 .2l.8 1c.2.3.2.7 0 1l-.7 1c-.2.3-.3.7-.2 1Z" fill="currentColor" opacity=".9"/>
-    </svg>
-    <span>WhatsApp</span>
-  </a>
+<!-- CTA FIXO (MELHOR CONVERSÃO NO MOBILE) -->
+<div class="ctaBar" aria-label="Barra fixa de contato">
+  <div class="ctaBarInner">
+    <a class="btn primary"
+       href="https://wa.me/5538991307687?text=Olá!%20Gostaria%20de%20agendar%20um%20roteiro%20no%20Parque%20Nacional%20Cavernas%20do%20Peruaçu.%20Pode%20me%20passar%20opções%20de%20datas%20e%20valores?"
+       target="_blank" rel="noopener">
+      📲 Falar agora no WhatsApp
+    </a>
+    <a class="btn secondary"
+       href="tel:+5538991307687" aria-label="Ligar agora">
+      📞 Ligar
+    </a>
+  </div>
 </div>
 
 <footer>
   <div class="container">
     <div class="foot">
       <div>
-        <b>Caminhos do Peruaçu</b><br />
+        <b style="font-weight:950">Caminhos do Peruaçu</b><br />
         <span class="muted">🥾 Guia Turístico | Ecoturismo • Itacarambi – MG</span>
       </div>
       <div class="muted">
@@ -551,7 +1039,7 @@
 </footer>
 
 <script>
-  // ano no rodapé
+  // Ano no rodapé
   document.getElementById('year').textContent = new Date().getFullYear();
 
   // Formulário -> WhatsApp com mensagem pronta (sem backend)
@@ -580,6 +1068,26 @@
 
     window.open(url, '_blank', 'noopener');
   });
+
+  // Reveal on scroll (super leve e opcional — respeita reduced-motion)
+  (function(){
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+
+    const els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) || els.length === 0) return;
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(ent => {
+        if (ent.isIntersecting){
+          ent.target.style.willChange = 'transform,opacity';
+          io.unobserve(ent.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    els.forEach(el => io.observe(el));
+  })();
 </script>
 
 <script type="application/ld+json">
