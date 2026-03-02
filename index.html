@@ -24,14 +24,8 @@
   <!-- Perf hints -->
   <link rel="preload" as="image" href="peruacu-6.jpg" imagesrcset="peruacu-6.jpg 1x" />
   <link rel="preload" as="image" href="logo.png" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <style>
-    /* ===============================
-       CAMINHOS DO PERUAÇU — ULTRA PRO
-       Mobile-first • alto contraste • rápido • leve
-       =============================== */
-
     :root{
       --bg:#f6f1e6;          /* areia clara */
       --surface:#ffffff;
@@ -88,7 +82,7 @@
     /* Header */
     header{
       position:sticky; top:0; z-index:60;
-      background: rgba(246,241,230,.78);
+      background: rgba(246,241,230,.82);
       backdrop-filter: blur(10px) saturate(140%);
       border-bottom:1px solid rgba(0,0,0,.06);
     }
@@ -104,8 +98,9 @@
     .brand img{
       width:44px; height:44px; border-radius:14px;
       background:#fff; box-shadow:0 8px 20px rgba(0,0,0,.08);
+      flex:0 0 auto;
     }
-    .brand b{display:block; letter-spacing:.2px; font-weight:900}
+    .brand b{display:block; letter-spacing:.2px; font-weight:950}
     .brand span{display:block; color:var(--muted); font-size:12.5px; margin-top:1px}
 
     .menu{
@@ -113,7 +108,7 @@
     }
     .menu a{
       color:rgba(31,31,31,.82);
-      font-weight:800; font-size:14px;
+      font-weight:900; font-size:14px;
       padding:10px 12px; border-radius:14px;
     }
     .menu a:hover{background:rgba(255,255,255,.75); box-shadow:0 8px 20px rgba(0,0,0,.06)}
@@ -124,15 +119,16 @@
       padding:12px 16px;
       border-radius:16px;
       border:1px solid rgba(0,0,0,.10);
-      background:rgba(255,255,255,.70);
+      background:rgba(255,255,255,.72);
       color:var(--text);
-      font-weight:900;
+      font-weight:950;
       letter-spacing:.2px;
       cursor:pointer;
       transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
       box-shadow: 0 10px 24px rgba(0,0,0,.06);
       user-select:none;
       -webkit-tap-highlight-color: transparent;
+      white-space:nowrap;
     }
     .btn:hover{transform:translateY(-1px); box-shadow:0 14px 30px rgba(0,0,0,.08)}
     .btn:active{transform:translateY(0)}
@@ -152,14 +148,17 @@
       background: rgba(25,178,139,.08);
     }
 
+    /* Header CTA text swap (mobile) */
+    .btnTextShort{display:none}
+
     .pill{
       display:inline-flex; align-items:center; gap:10px;
       padding:10px 14px;
       border:1px solid rgba(0,0,0,.08);
       border-radius:999px;
-      background: rgba(255,255,255,.65);
+      background: rgba(255,255,255,.68);
       box-shadow: 0 10px 24px rgba(0,0,0,.06);
-      font-weight:800;
+      font-weight:900;
       color: rgba(31,31,31,.92);
     }
     .dot{
@@ -168,7 +167,7 @@
       box-shadow:0 0 0 6px rgba(25,178,139,.14);
     }
 
-    /* Hero (cinematográfico e leve) */
+    /* Hero */
     .hero{
       position:relative;
       padding:56px 0 24px;
@@ -211,7 +210,7 @@
       line-height:1.05;
       margin:14px 0 12px;
       letter-spacing:-.3px;
-      font-weight:950;
+      font-weight:980;
     }
     .hTitle em{font-style:normal; color:var(--brand2)}
     .lead{
@@ -261,7 +260,7 @@
       box-shadow: var(--shadow2);
       backdrop-filter: blur(10px);
     }
-    .mini b{display:block; font-size:13px; font-weight:950}
+    .mini b{display:block; font-size:13px; font-weight:980}
     .mini span{display:block; font-size:12px; color:rgba(31,31,31,.70)}
 
     /* Sections */
@@ -270,7 +269,7 @@
       font-size: clamp(22px, 2.4vw, 32px);
       margin:0 0 10px;
       letter-spacing:-.2px;
-      font-weight:950;
+      font-weight:980;
     }
     .section p{color:var(--muted); margin:0}
 
@@ -286,7 +285,7 @@
       transition: transform .18s ease, box-shadow .18s ease;
     }
     .feature:hover{transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,.10)}
-    .feature h3{margin:0 0 8px; font-size:16px; font-weight:950}
+    .feature h3{margin:0 0 8px; font-size:16px; font-weight:980}
     .feature p{margin:0; color:rgba(31,31,31,.72); font-size:14px}
 
     .kpi{display:flex; gap:12px; align-items:flex-start}
@@ -324,7 +323,6 @@
       transform: rotate(18deg);
       pointer-events:none;
     }
-    .storyCard b{font-weight:950}
     .bullets{
       margin:14px 0 0;
       padding:0;
@@ -335,7 +333,7 @@
     .bullets li{
       display:flex; gap:10px; align-items:flex-start;
       color:rgba(31,31,31,.78);
-      font-weight:750;
+      font-weight:850;
     }
     .tick{
       width:20px; height:20px; border-radius:7px;
@@ -355,7 +353,7 @@
       gap:14px;
       align-items:stretch;
     }
-    .tourCard h3{margin:0 0 8px; font-weight:950}
+    .tourCard h3{margin:0 0 8px; font-weight:980}
     .tourCard ul{
       margin:10px 0 0;
       padding-left:18px;
@@ -371,10 +369,10 @@
       background: rgba(63,107,75,.10);
       border:1px solid rgba(63,107,75,.18);
       color: rgba(31,31,31,.80);
-      font-weight:850;
+      font-weight:950;
     }
 
-    /* Gallery */
+    /* Gallery (desktop) */
     .gallery{
       display:grid;
       grid-template-columns: repeat(12,1fr);
@@ -412,7 +410,7 @@
       padding:14px 16px;
       box-shadow: var(--shadow2);
     }
-    .faq summary{cursor:pointer; font-weight:950}
+    .faq summary{cursor:pointer; font-weight:980}
     .faq p{margin:10px 0 0; color:rgba(31,31,31,.74); font-size:14px}
 
     /* Contact */
@@ -423,7 +421,6 @@
       align-items:start;
     }
     .contactBox{padding:18px}
-
     .list{
       margin:10px 0 0;
       padding:0;
@@ -441,7 +438,7 @@
     .list a.btn{margin-top:10px}
 
     .form{display:grid; gap:10px; margin-top:10px}
-    label{font-size:13px; color:rgba(31,31,31,.74); font-weight:850}
+    label{font-size:13px; color:rgba(31,31,31,.74); font-weight:900}
     input, textarea, select{
       width:100%;
       padding:12px 12px;
@@ -451,7 +448,7 @@
       color:var(--text);
       outline:none;
       transition: box-shadow .15s ease, border-color .15s ease;
-      font-weight:700;
+      font-weight:750;
     }
     textarea{min-height:112px; resize:vertical}
     input:focus, textarea:focus, select:focus{
@@ -461,14 +458,14 @@
 
     /* Footer */
     footer{
-      padding:28px 0 120px; /* espaço para CTA fixo mobile */
+      padding:28px 0 120px;
       border-top:1px solid rgba(0,0,0,.06);
       color:rgba(31,31,31,.70);
     }
     .foot{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
     .muted{color:rgba(31,31,31,.70)}
 
-    /* Fixed CTA bar (converte muito no celular) */
+    /* Fixed CTA bar */
     .ctaBar{
       position:fixed;
       left:0; right:0; bottom:0;
@@ -487,15 +484,11 @@
       align-items:center;
     }
     .ctaBar .btn{flex:1}
-    .ctaBar .btn.secondary{
-      background: rgba(255,255,255,.78);
-    }
+    .ctaBar .btn.secondary{background: rgba(255,255,255,.78)}
 
-    /* Micro-animations (leve e “cinematográfico”) */
+    /* Micro-animations (leve) */
     @media (prefers-reduced-motion: no-preference){
-      .reveal{
-        animation: rise .8s ease both;
-      }
+      .reveal{animation: rise .8s ease both}
       .delay1{animation-delay:.06s}
       .delay2{animation-delay:.12s}
       .delay3{animation-delay:.18s}
@@ -515,19 +508,75 @@
       .contactGrid{grid-template-columns:1fr}
     }
 
+    /* ============================
+       MELHORIAS EXATAS DO MOBILE
+       (as partes marcadas nas suas imagens)
+       ============================ */
     @media (max-width: 600px){
       .container{padding:0 16px}
+
+      /* 1) TOPO (marca + botão) mais bonito/compacto */
+      header{
+        background: rgba(246,241,230,.94);
+        backdrop-filter: blur(10px);
+      }
+      .nav{
+        padding:10px 0;
+        gap:10px;
+      }
+      .brand{
+        min-width:0;
+        gap:10px;
+      }
+      .brand img{
+        width:40px; height:40px; border-radius:14px;
+      }
+      .brand b{
+        font-size:15px;
+        line-height:1.1;
+      }
+      /* deixa o subtítulo em 1 linha (sem “quebrar feio”) */
+      .brand span{
+        font-size:12px;
+        display:-webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow:hidden;
+      }
+      /* botão do header não fica “grande/estranho” no mobile */
+      .btn.small{
+        padding:10px 12px;
+        font-size:13px;
+        border-radius:14px;
+      }
+      .btnTextLong{display:none}
+      .btnTextShort{display:inline}
+
+      /* 2) HERO textos e botões */
       .hTitle{font-size: 32px; line-height:1.12}
       .lead{font-size:16px}
       .btn{width:100%}
       .ctaRow{flex-direction:column}
-      .grid3{grid-template-columns:1fr}
-      .grid2{grid-template-columns:1fr}
       .hero{padding:46px 0 18px}
+
+      /* 3) GALERIA no mobile (fica agradável, sem mini-retângulos estranhos)
+            Layout: 1 foto grande + 2 médias + 3 pequenas (todas com proporção bonita) */
+      .gallery{
+        grid-template-columns: repeat(6, 1fr);
+        gap:10px;
+      }
+      .gItem{border-radius:20px}
+      .g1{grid-column: 1 / -1; aspect-ratio: 16 / 10;}   /* grande */
+      .g2{grid-column: 1 / span 3; aspect-ratio: 4 / 3;} /* média */
+      .g3{grid-column: 4 / span 3; aspect-ratio: 4 / 3;} /* média */
+      .g4{grid-column: 1 / span 2; aspect-ratio: 1 / 1;} /* pequena */
+      .g5{grid-column: 3 / span 2; aspect-ratio: 1 / 1;} /* pequena */
+      .g6{grid-column: 5 / span 2; aspect-ratio: 1 / 1;} /* pequena */
+
       footer{padding-bottom:140px}
     }
 
-    /* Desktop: CTA bar menor e discreta */
+    /* Desktop: CTA bar menor */
     @media (min-width: 901px){
       .ctaBar{padding:10px 18px}
       .ctaBarInner{justify-content:flex-end}
@@ -561,7 +610,8 @@
       <a class="btn primary small"
          href="https://wa.me/5538991307687?text=Olá!%20Gostaria%20de%20agendar%20um%20roteiro%20no%20Parque%20Nacional%20Cavernas%20do%20Peruaçu.%20Pode%20me%20passar%20opções%20de%20datas%20e%20valores?"
          target="_blank" rel="noopener" aria-label="Agendar no WhatsApp">
-        Agendar no WhatsApp
+        <span class="btnTextLong">Agendar no WhatsApp</span>
+        <span class="btnTextShort">Agendar</span>
       </a>
     </nav>
   </div>
@@ -570,7 +620,6 @@
 <main id="top">
   <div id="conteudo"></div>
 
-  <!-- HERO -->
   <section class="hero" aria-label="Apresentação">
     <div class="container">
       <div class="heroGrid">
@@ -624,10 +673,8 @@
             </div>
           </div>
         </div>
-
       </div>
 
-      <!-- Story / confiança + “National Geographic vibe” -->
       <div class="story" aria-label="Por que visitar">
         <div class="storyCard reveal delay1">
           <h2 style="margin:0 0 6px">Por que visitar o Peruaçu?</h2>
@@ -696,7 +743,6 @@
         </div>
       </div>
 
-      <!-- 3 KPIs -->
       <div class="section" style="padding:18px 0 0">
         <div class="grid3">
           <div class="feature reveal">
@@ -743,14 +789,12 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ROTEIROS -->
   <section id="roteiros" class="section">
     <div class="container">
       <h2>Roteiros em destaque</h2>
@@ -812,7 +856,6 @@
     </div>
   </section>
 
-  <!-- GALERIA -->
   <section id="galeria" class="section">
     <div class="container">
       <h2>Galeria • Peruaçu e arte rupestre</h2>
@@ -841,7 +884,6 @@
     </div>
   </section>
 
-  <!-- COMO FUNCIONA -->
   <section id="como-funciona" class="section">
     <div class="container">
       <h2>Como funciona a visita</h2>
@@ -866,7 +908,6 @@
     </div>
   </section>
 
-  <!-- FAQ -->
   <section id="faq" class="section">
     <div class="container">
       <h2>Dúvidas frequentes</h2>
@@ -894,7 +935,6 @@
     </div>
   </section>
 
-  <!-- CONTATO -->
   <section id="contato" class="section">
     <div class="container">
       <h2>Contato e agendamento</h2>
@@ -902,7 +942,7 @@
 
       <div class="contactGrid">
         <div class="card contactBox reveal">
-          <h3 style="margin:0 0 10px; font-weight:950">Fale comigo agora</h3>
+          <h3 style="margin:0 0 10px; font-weight:980">Fale comigo agora</h3>
 
           <ul class="list">
             <li>
@@ -956,7 +996,7 @@
         </div>
 
         <div class="card contactBox reveal delay1">
-          <h3 style="margin:0 0 10px; font-weight:950">Pedido rápido (gera mensagem no WhatsApp)</h3>
+          <h3 style="margin:0 0 10px; font-weight:980">Pedido rápido (gera mensagem no WhatsApp)</h3>
 
           <form class="form" id="quickForm" aria-label="Formulário de pedido rápido">
             <div>
@@ -1004,7 +1044,6 @@
   </section>
 </main>
 
-<!-- CTA FIXO (MELHOR CONVERSÃO NO MOBILE) -->
 <div class="ctaBar" aria-label="Barra fixa de contato">
   <div class="ctaBarInner">
     <a class="btn primary"
@@ -1012,8 +1051,7 @@
        target="_blank" rel="noopener">
       📲 Falar agora no WhatsApp
     </a>
-    <a class="btn secondary"
-       href="tel:+5538991307687" aria-label="Ligar agora">
+    <a class="btn secondary" href="tel:+5538991307687" aria-label="Ligar agora">
       📞 Ligar
     </a>
   </div>
@@ -1023,7 +1061,7 @@
   <div class="container">
     <div class="foot">
       <div>
-        <b style="font-weight:950">Caminhos do Peruaçu</b><br />
+        <b style="font-weight:980">Caminhos do Peruaçu</b><br />
         <span class="muted">🥾 Guia Turístico | Ecoturismo • Itacarambi – MG</span>
       </div>
       <div class="muted">
@@ -1039,7 +1077,6 @@
 </footer>
 
 <script>
-  // Ano no rodapé
   document.getElementById('year').textContent = new Date().getFullYear();
 
   // Formulário -> WhatsApp com mensagem pronta (sem backend)
@@ -1069,7 +1106,7 @@
     window.open(url, '_blank', 'noopener');
   });
 
-  // Reveal on scroll (super leve e opcional — respeita reduced-motion)
+  // Reveal on scroll (leve e opcional; respeita reduced-motion)
   (function(){
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) return;
